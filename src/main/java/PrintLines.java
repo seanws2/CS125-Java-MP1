@@ -21,6 +21,10 @@ public class PrintLines {
      * <strong>Not the same as the files used during grading.</strong>
      */
     private static final String INTERACTIVE_SCRIPT_FILE = "Rent-Excerpt.txt";
+    /**
+     * String used to input actress's name.
+     */
+    private static String actress;
 
     /**
      * Prints lines from a script for a given actress (or actor).
@@ -52,10 +56,35 @@ public class PrintLines {
      * </ol>
      * <p>
      * Complete the Javadoc comment and write this function.
-     *
+     * @param actress1 a name of an actor or actress who's lines the method will search for
+     * @param scriptLines the location of the script that the lines will be searched for within
      */
-    public static void linePrinter(final String actress, final String[] scriptLines) {
-        return 0.0;
+
+    public static void linePrinter(final String actress1, final String[] scriptLines) {
+        String upper = actress1.substring(0, 1).toUpperCase() + actress1.substring(1);
+        String downer = actress1.substring(0, 1).toLowerCase() + actress1.substring(1);
+        boolean print = false;
+        for (int j = 0; j < scriptLines.length; j++) {
+            String tamp = scriptLines[j];
+            if (tamp.contains(upper)) {
+                print = true;
+                System.out.println(downer);
+                System.out.println("---");
+                break;
+            }
+        }
+        if (print) {
+            for (int i = 0; i < scriptLines.length; i++) {
+                if (scriptLines[i].contains(upper)) {
+                    int i2 = 1;
+                    while (!scriptLines[i + i2].isEmpty()) {
+                        System.out.println(scriptLines[i + i2]);
+                        i2++;
+                    }
+                    System.out.println("---");
+                }
+            }
+        }
     }
 
     /* ********************************************************************************************

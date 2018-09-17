@@ -10,9 +10,10 @@ import java.util.Scanner;
  * @see <a href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar Cipher Documentation</a>
  */
 public class Encrypt {
-
+    /** Minimum shift. */
     public static final int MIN_SHIFT = -1024;
 
+    /** Maximum shift. */
     public static final int MAX_SHIFT = 1024;
 
     /** Transformation start. */
@@ -44,9 +45,13 @@ public class Encrypt {
      * Complete the Javadoc comment for this function and write it.
      *
      * @see <a href="http://www.asciitable.com/">ASCII Character Table</a>
+     * @param line an array of characters
+     * @param shift an integer for the amount of shifts
+     * @return car another array of characters
      */
     public static char[] encrypter(final char[] line, final int shift) {
-        return 0;
+        char[]car = {'a', 'b', 'c'};
+        return car;
     }
 
     /**
@@ -60,7 +65,7 @@ public class Encrypt {
      * @see <a href="http://www.asciitable.com/">ASCII Character Table</a>
      */
     public static char[] decrypter(final char[] line, final int shift) {
-        return 0;
+        return null;
     }
 
     /* ********************************************************************************************
