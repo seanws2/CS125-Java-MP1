@@ -61,12 +61,13 @@ public class PrintLines {
      */
 
     public static void linePrinter(final String actress1, final String[] scriptLines) {
-        String upper = actress1.substring(0, 1).toUpperCase() + actress1.substring(1);
-        String downer = actress1.substring(0, 1).toLowerCase() + actress1.substring(1);
+        String upper = actress1.toUpperCase();
+        String downer = actress1.toLowerCase();
+        String temp;
         boolean print = false;
         for (int j = 0; j < scriptLines.length; j++) {
             String tamp = scriptLines[j];
-            if (tamp.contains(upper)) {
+            if (upper.equals(tamp)) {
                 print = true;
                 System.out.println(downer);
                 System.out.println("---");
@@ -75,10 +76,11 @@ public class PrintLines {
         }
         if (print) {
             for (int i = 0; i < scriptLines.length; i++) {
-                if (scriptLines[i].contains(upper)) {
+                if (scriptLines[i].equals(upper)) {
                     int i2 = 1;
-                    while (!scriptLines[i + i2].isEmpty()) {
-                        System.out.println(scriptLines[i + i2]);
+                    while (((i + i2) < scriptLines.length) && !scriptLines[i + i2].isEmpty()) {
+                        temp = scriptLines[i + i2];
+                        System.out.println(temp);
                         i2++;
                     }
                     System.out.println("---");
