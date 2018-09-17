@@ -74,6 +74,7 @@ public class PrintLines {
                 break;
             }
         }
+        //if search for name worked and name got printed iterate through again to find lines
         if (print) {
             for (int i = 0; i < scriptLines.length; i++) {
                 if (scriptLines[i].equals(upper)) {

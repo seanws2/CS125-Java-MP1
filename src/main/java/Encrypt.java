@@ -50,7 +50,7 @@ public class Encrypt {
      * @return car another array of characters
      */
     public static char[] encrypter(final char[] line, final int shift) {
-       char[] ncryptCar = new char[line.length];
+        char[] ncryptCar = new char[line.length];
        int newPos;
         if (line == null) {
            return null;
@@ -58,6 +58,7 @@ public class Encrypt {
        if (shift > MAX_SHIFT || shift < MIN_SHIFT) {
            return null;
        }
+       //iterate through line
        for (int i = 0; i < line.length; i++) {
            int asc2 = (int) line[i];
            if (asc2 < TRANSFORM_START || asc2 > TRANSFORM_END) {
