@@ -50,8 +50,30 @@ public class Encrypt {
      * @return car another array of characters
      */
     public static char[] encrypter(final char[] line, final int shift) {
-        char[]car = {'a', 'b', 'c'};
-        return car;
+       char[] ncryptCar = new char[line.length];
+       int newPos;
+        if (line == null) {
+           return null;
+       }
+       if (shift > MAX_SHIFT || shift < MIN_SHIFT) {
+           return null;
+       }
+       for (int i = 0; i < line.length; i++) {
+           int asc2 = (int) line[i];
+           if (asc2 < TRANSFORM_START || asc2 > TRANSFORM_END) {
+               return null;
+           }
+           newPos = asc2 + shift;
+           while (newPos < TRANSFORM_START) {
+                newPos = newPos + TRANSFORM_MODULUS;
+           }
+           while (newPos > TRANSFORM_END) {
+                newPos = newPos - TRANSFORM_MODULUS;
+           }
+           char newCar = (char) newPos;
+           ncryptCar[i] = newCar;
+       }
+       return ncryptCar;
     }
 
     /**
@@ -65,7 +87,30 @@ public class Encrypt {
      * @see <a href="http://www.asciitable.com/">ASCII Character Table</a>
      */
     public static char[] decrypter(final char[] line, final int shift) {
-        return null;
+        char[] ncryptCar1 = new char[line.length];
+        int newPos1;
+        if (line == null) {
+            return null;
+        }
+        if (shift > MAX_SHIFT || shift < MIN_SHIFT) {
+            return null;
+        }
+        for (int j = 0; j < line.length; j++) {
+            int asc21 = (int) line[j];
+            if (asc21 < TRANSFORM_START || asc21 > TRANSFORM_END) {
+                return null;
+            }
+            newPos1 = asc21 - shift;
+            while (newPos1 < TRANSFORM_START) {
+                newPos1 = newPos1 + TRANSFORM_MODULUS;
+            }
+            while (newPos1 > TRANSFORM_END) {
+                newPos1 = newPos1 - TRANSFORM_MODULUS;
+            }
+            char newCar1 = (char) newPos1;
+            ncryptCar1[j] = newCar1;
+        }
+        return ncryptCar1;
     }
 
     /* ********************************************************************************************
